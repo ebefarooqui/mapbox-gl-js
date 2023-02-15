@@ -530,6 +530,7 @@ jobs:
     working_directory: ~/mapbox-gl-js
     steps:
       - checkout
+      - run: $NodeVersion = Get-Content -Path .\.nvmrc; nvm install $NodeVersion; nvm use $NodeVersion
       - run: yarn --frozen-lockfile
       - run: yarn run build-dev
       - run:
